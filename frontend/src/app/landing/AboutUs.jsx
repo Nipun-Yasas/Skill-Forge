@@ -1,0 +1,46 @@
+import React from "react";
+
+const AboutUs = () => {
+  return (
+    <section className="self-center mt-24 w-full max-w-[1298px] max-md:mt-10 max-md:max-w-full">
+      <div className="flex gap-5 max-md:flex-col">
+        <div className="w-6/12 max-md:ml-0 max-md:w-full">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/aee2d33204de82882d73ea6d114032f0cc80597d?placeholderIfAbsent=true"
+            alt="About us illustration"
+            className="object-contain grow w-full aspect-[0.98] max-md:mt-10 max-md:max-w-full"
+          />
+        </div>
+        <div className="ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col mt-28 w-full max-md:mt-10 max-md:max-w-full">
+            <div className="flex gap-1.5 self-start text-lg leading-loose text-cyan-500 uppercase">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/552537a730cd8d509b9bbf6fa1f0d4c3f97a8ada?placeholderIfAbsent=true"
+                alt="About icon"
+                className="object-contain shrink-0 w-3.5 aspect-[0.87]"
+              />
+              <span>about us</span>
+            </div>
+            <div className="flex flex-col items-start pl-1.5 mt-8 max-md:max-w-full">
+              <h2 className="text-5xl font-bold leading-[50px] text-sky-950 max-md:max-w-full max-md:text-4xl max-md:leading-[49px]">
+                Empowering Students Through Peer-to-Peer Learning
+              </h2>
+              <p className="self-stretch mt-7 text-lg leading-8 text-neutral-600 max-md:max-w-full">
+                At SkillForge, we believe that learning is most effective when it's shared.
+                Our platform connects university students who want to learn new skills with
+                peers who already master those skills. Through mentorship, live workshops,
+                and hands-on experience, we create a collaborative learning environment that
+                makes education practical, engaging, and accessible.
+              </p>
+              <button className="px-16 py-6 mt-11 text-base leading-4 text-center text-white uppercase bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-5 max-md:mt-10">
+                Join Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutUs;
