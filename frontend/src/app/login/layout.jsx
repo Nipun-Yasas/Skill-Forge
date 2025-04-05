@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans">{children}</body>
+      <body className={typeof window !== 'undefined' ? "font-sans" : undefined}>{children}</body>
     </html>
   )
 }

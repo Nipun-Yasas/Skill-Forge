@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="default-body-class">{children}</body>
+      <body className={typeof window !== 'undefined' ? 'default-body-class' : ''}>{children}</body>
     </html>
   )
 }
