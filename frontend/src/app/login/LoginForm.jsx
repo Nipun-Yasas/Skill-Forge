@@ -5,59 +5,53 @@ import Divider from "./Divider";
 
 const LoginForm = () => {
   return (
-    <section className="flex flex-col flex-1 items-center p-10 max-md:p-5">
-      <div className="w-full max-w-[419px]">
-        <h1 className="mb-4 text-3xl text-black">Welcome Back!</h1>
-        <p className="mb-10 text-xl text-black text-opacity-50">
-          Log in to your account
-        </p>
-        <form>
-          <div className="mb-5 w-full">
-            <div className="relative w-full bg-white rounded-md shadow-sm h-[50px]">
-              <input
-                type="email"
-                placeholder="Email"
-                className="px-5 text-xl rounded-md border-[nonepx] size-full text-black text-opacity-30"
-                aria-label="Email"
-              />
-            </div>
-          </div>
-          <div className="mb-5 w-full">
-            <div className="relative w-full bg-white rounded-md shadow-sm h-[50px]">
-              <input
-                type="password"
-                placeholder="Password"
-                className="px-5 text-xl rounded-md border-[nonepx] size-full text-black text-opacity-30"
-                aria-label="Password"
-              />
-            </div>
-          </div>
-          <label className="flex items-center mb-5">
-            <input
-              type="checkbox"
-              className="mr-2.5 w-5 h-5 bg-white rounded-md border border-black"
-            />
-            <span className="text-xl text-black">Remember me</span>
-          </label>
-          <button
-            type="submit"
-            className="mb-5 w-full h-12 text-lg text-white bg-sky-600 rounded-md shadow-sm"
-          >
-            Log In
-          </button>
-        </form>
-        <p className="mb-4 text-xl text-center text-black">
+    <section className="flex flex-col w-[360px] max-w-full px-4 md:px-0 mx-auto my-8">
+      <h1 className="mb-6 text-2xl text-black text-center">Welcome Back!</h1>
+      <p className="mb-6 text-sm text-black text-opacity-50 text-center">
+        Log in to your account
+      </p>
+      <form className="flex flex-col gap-4">
+        <div className="relative">
+          <input
+            type="email"
+            placeholder="Email"
+            className="px-4 w-full text-base bg-white rounded-md shadow-sm h-[40px]"
+            aria-label="Email"
+          />
+        </div>
+        <div className="relative">
+          <input
+            type="password"
+            placeholder="Password"
+            className="px-4 w-full text-base bg-white rounded-md shadow-sm h-[40px]"
+            aria-label="Password"
+          />
+        </div>
+        <label className="flex gap-2 items-center">
+          <input
+            type="checkbox"
+            className="w-4 h-4 bg-white rounded-md border border-black"
+          />
+          <span className="text-sm text-black">Remember me</span>
+        </label>
+        <button
+          type="submit"
+          className="w-full h-10 text-sm text-white bg-sky-600 rounded-md shadow-sm hover:bg-sky-700 transition"
+        >
+          Log In
+        </button>
+        <p className="mt-4 text-sm text-center text-black">
           Don't have an account?
         </p>
         <a
           href="#"
-          className="block mb-10 text-xl font-semibold text-center text-black"
+          className="text-sm font-semibold text-center text-sky-600 hover:underline"
         >
           Register
         </a>
         <Divider text="or" />
         <GoogleButton />
-      </div>
+      </form>
     </section>
   );
 };
