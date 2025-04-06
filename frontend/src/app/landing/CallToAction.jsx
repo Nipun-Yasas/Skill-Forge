@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const CallToAction = () => {
@@ -18,8 +19,8 @@ const CallToAction = () => {
                 a new skill or share your expertise, our platform makes it easy, fun,
                 and accessible.
               </p>
-              <button className="self-start px-16 py-6 mt-11 text-base leading-4 text-center text-white uppercase bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-5 max-md:mt-10">
-                Join Now
+              <button className="self-start px-16 py-6 mt-11 text-base leading-4 text-center text-white uppercase bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-5 max-md:mt-10"><Link href="/signUp">
+                Join Now</Link>
               </button>
             </div>
           </div>

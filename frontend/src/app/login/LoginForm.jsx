@@ -44,7 +44,7 @@ const LoginForm = () => {
           Don't have an account?
         </p>
         <a
-          href="#"
+          
           className="text-sm font-semibold text-center text-sky-600 hover:underline"
         ><Link href="/signUp">
           Register</Link>
