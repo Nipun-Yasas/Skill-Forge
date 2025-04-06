@@ -2,7 +2,7 @@ import React from "react";
 
 const CallToAction = () => {
   return (
-    <section className="px-20 pt-32 pb-0.5 w-full bg-[#CAF0F8] max-md:px-5 max-md:pt-24 max-md:max-w-full">
+    <section id="cta"  className="px-20 pt-32 pb-0.5 w-full bg-[#CAF0F8] max-md:px-5 max-md:pt-24 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col">
         <div className="w-[56%] max-md:ml-0 max-md:w-full">
           <div className="flex flex-col max-md:mt-10 max-md:max-w-full">

@@ -2,7 +2,7 @@ import React from "react";
 
 function Stats() {
   return (
-    <section className="relative flex flex-col justify-center items-center px-8 py-12 w-full bg-cyan-100 max-md:px-4 max-md:py-8 max-md:bg-[#00B4D8]">
+    <section id="stats" className="relative flex flex-col justify-center items-center px-8 py-12 w-full bg-cyan-100 max-md:px-4 max-md:py-8 max-md:bg-[#00B4D8]">
       <div className="relative px-12 py-10 max-w-full rounded-[100px] w-full max-md:px-6 max-md:py-8">
         <figure className="relative flex flex-col w-full">
           <div className="relative w-full h-[200px] rounded-[100px] overflow-hidden max-md:h-[120px]">

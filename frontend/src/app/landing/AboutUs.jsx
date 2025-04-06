@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 
 const AboutUs = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSectionElements = document.querySelectorAll('#about div,#cta div,#testimonials div,#features div,#Footer div,#stats div');
+      aboutSectionElements.forEach(element => {
+        const position = element.getBoundingClientRect();
+
+        // Checking if the element is in the viewport
+        if (position.top < window.innerHeight && position.bottom >= 0) {
+          element.style.animation = 'fadeIn 2s ease-out forwards';
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <section className="self-center mt-24 w-full max-w-[1298px] max-md:mt-10 max-md:max-w-full">
-      <div className="flex gap-5 max-md:flex-col">
+    <> <style>{`
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+     
+
+      .fadeInAnimate {
+        animation: fadeIn 2s ease-out forwards, filling 10s ease-in-out infinite;
+      }
+    `}</style>
+    <section id="about" className="self-center mt-24 w-full max-w-[1298px] max-md:mt-10 max-md:max-w-full">
+      <div className="flex gap-5 max-md:flex-col" data-animate>
         <div className="w-6/12 max-md:ml-0 max-md:w-full">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/aee2d33204de82882d73ea6d114032f0cc80597d?placeholderIfAbsent=true"
@@ -40,7 +77,10 @@ const AboutUs = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
+
+
 
 export default AboutUs;
