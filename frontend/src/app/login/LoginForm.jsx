@@ -2,7 +2,7 @@
 import React from "react";
 import GoogleButton from "./GoogleButton";
 import Divider from "./Divider";
-
+import Link from "next/link";
 const LoginForm = () => {
   return (
     <section className="flex flex-col w-[360px] max-w-full px-4 md:px-0 mx-auto my-8">
@@ -46,8 +46,8 @@ const LoginForm = () => {
         <a
           href="#"
           className="text-sm font-semibold text-center text-sky-600 hover:underline"
-        >
-          Register
+        ><Link href="/signUp">
+          Register</Link>
         </a>
         <Divider text="or" />
         <GoogleButton />

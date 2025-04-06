@@ -1,7 +1,7 @@
 "use client";
 import { GoogleSignInButton } from "./GoogleSignInButton";
 import { FormDivider } from "./FormDivider";
-
+import Link from "next/link";
 export const FormSection = () => {
   return (
     <section className="flex flex-col w-[360px] max-md:w-full">
@@ -48,7 +48,7 @@ export const FormSection = () => {
         <p className="mt-4 text-sm text-center text-black">
           Already have an account?
         </p>
-        <p className="text-sm font-semibold text-center text-black">Login</p>
+        <p className="text-sm font-semibold text-center text-black"><Link href="/login">Login</Link></p>
       </form>
     </section>
   );

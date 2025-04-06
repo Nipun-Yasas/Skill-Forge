@@ -2,20 +2,20 @@ import React from "react";
 
 function Stats() {
   return (
-    <section className="relative flex flex-col justify-center items-center px-16 py-16 w-full bg-cyan-100 max-md:px-5 max-md:py-10 max-md:bg-[#00B4D8]">
-      <div className="relative px-20 py-14 max-w-full rounded-[200px] w-full max-md:px-5 max-md:py-10">
+    <section className="relative flex flex-col justify-center items-center px-8 py-12 w-full bg-cyan-100 max-md:px-4 max-md:py-8 max-md:bg-[#00B4D8]">
+      <div className="relative px-12 py-10 max-w-full rounded-[100px] w-full max-md:px-6 max-md:py-8">
         <figure className="relative flex flex-col w-full">
-          <div className="relative w-full h-[250px] rounded-[200px] overflow-hidden max-md:h-[150px]">
+          <div className="relative w-full h-[200px] rounded-[100px] overflow-hidden max-md:h-[120px]">
             <div
-              className="absolute inset-0 bg-cover bg-center "
+              className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage:
                   "url('https://cdn.builder.io/api/v1/image/assets/TEMP/73d5dde3b8416bd6c537c15fe64d8022533c24f8?placeholderIfAbsent=true')",
               }}
             ></div>
           </div>
-          <div className="absolute inset-10 flex flex-col justify-center items-center max-md:inset-5">
-            <div className="flex flex-wrap gap-5 justify-center mt-10 max-md:mt-5">
+          <div className="absolute inset-8 flex flex-col justify-center items-center max-md:inset-4">
+            <div className="flex flex-wrap gap-6 justify-center mt-8 max-md:gap-4 max-md:mt-4">
               <StatItem
                 icon="https://cdn.builder.io/api/v1/image/assets/TEMP/daec5606ee8aa45277cec586b290bb1cf3348ea3?placeholderIfAbsent=true"
                 number="3K+"
@@ -46,17 +46,17 @@ function Stats() {
 
 function StatItem({ icon, number, text }) {
   return (
-    <div className="flex gap-5 max-md:gap-3 max-md:flex-col max-md:items-center">
+    <div className="flex gap-4 max-md:gap-2 max-md:flex-col max-md:items-center">
       <img
         src={icon}
         alt="Stat icon"
-        className="object-contain shrink-0 aspect-square rounded-[39px] w-[78px] max-md:w-[50px]"
+        className="object-contain shrink-0 aspect-square rounded-[20px] w-[60px] max-md:w-[40px]"
       />
       <div className="flex flex-col my-auto max-md:items-center">
-        <h3 className="self-start text-4xl font-bold max-md:text-2xl max-md:self-center">
+        <h3 className="self-start text-3xl font-bold max-md:text-xl max-md:self-center">
           {number}
         </h3>
-        <p className="mt-7 text-lg max-md:mt-3 max-md:text-sm text-center">
+        <p className="mt-4 text-base max-md:mt-2 max-md:text-sm text-center">
           {text}
         </p>
       </div>

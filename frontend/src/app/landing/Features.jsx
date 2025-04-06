@@ -43,7 +43,7 @@ function Features() {
 function FeatureCard({ icon, title, description }) {
   return (
     <article className="w-3/12 max-md:ml-0 max-md:w-full">
-      <div className="flex flex-col items-center px-2 py-9 mx-auto w-full text-center bg-white rounded-3xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:mt-10">
+      <div className="flex flex-col items-center px-2 py-9 mx-auto w-full text-center bg-white rounded-3xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:mt-10 h-full">
         <img
           src={icon}
           alt={title}
@@ -52,9 +52,11 @@ function FeatureCard({ icon, title, description }) {
         <h3 className="mt-6 text-2xl font-bold leading-6 text-sky-950">
           {title}
         </h3>
+        <div className="flex-grow"></div>
         <p className="self-stretch mt-7 text-base leading-8 text-indigo-900">
           {description}
         </p>
+        
         <button className="flex gap-3.5 px-5 py-6 mt-11 max-w-full text-base tracking-normal leading-4 text-white bg-cyan-500 rounded-[200px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[156px] max-md:mt-10">
           <span>view details</span>
           <img

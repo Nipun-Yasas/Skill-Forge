@@ -32,7 +32,7 @@ const AboutUs = () => {
                 and hands-on experience, we create a collaborative learning environment that
                 makes education practical, engaging, and accessible.
               </p>
-              <button className="px-16 py-6 mt-11 text-base leading-4 text-center text-white uppercase bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-5 max-md:mt-10">
+              <button className="px-6 py-3 mt-6 text-lg font-semibold text-white bg-sky-600 rounded-lg shadow-md hover:bg-sky-700">
                 Join Now
               </button>
             </div>
