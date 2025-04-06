@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Hero() {
@@ -17,8 +18,9 @@ function Hero() {
           <p className="mt-4 text-lg text-gray-700">
             Join a community of university students exchanging skills through mentorship, live workshops, and hands-on experience.
           </p>
-          <button className="mt-6 px-6 py-3 text-lg font-semibold text-white bg-sky-600 rounded-lg shadow-md hover:bg-sky-700">
+          <button className="mt-6 px-6 py-3 text-lg font-semibold text-white bg-sky-600 rounded-lg shadow-md hover:bg-sky-700"><Link href="/signUp">
             Start Learning
+            </Link>
           </button>
         </div>
 
