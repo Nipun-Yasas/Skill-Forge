@@ -16,7 +16,7 @@ export const BackgroundShapes = () => {
             />
           </svg>
         </div>
-        <div className="absolute right-[40px] top-[-45px]">
+        <div className="absolute right-[0px] top-[-45px]">
           <svg
             width="371"
             height="446"
