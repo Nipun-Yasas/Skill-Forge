@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={typeof window !== 'undefined' ? "font-sans" : undefined}>{children}</body>
+      <body className="font-sans" suppressHydrationWarning={true}>{children}</body>
     </html>
   )
 }
