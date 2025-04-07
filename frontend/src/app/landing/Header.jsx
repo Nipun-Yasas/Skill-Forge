@@ -50,18 +50,22 @@ function Header() {
             Contact Us
           </a>
           <div className="flex flex-col md:flex-row md:items-center md:gap-4">
-            <Link href="/login">
-              <button className="relative inline-flex items-center justify-center p-0.5 mb-4 md:mb-0 mr-0 md:mr-2 overflow-hidden text-sm text-gray-600 font-semibold rounded-[5px] group bg-gradient-to-r from-blue-600 to-violet-600 group-hover:from-indigo-600 group-hover:to-indigo-500 hover:text-black transition duration-300 transform hover:scale-105">
-                <span className="relative px-4 py-1.5 transition-all ease-in duration-75 bg-white rounded-[5px] group-hover:bg-opacity-0">
-                  Log In
-                </span>
-              </button>
-            </Link>
-            <Link href="/signUp">
-              <button className="p-2.5 text-xs text-center bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] text-slate-50 w-[70px] md:w-[80px] hover:bg-sky-700 transition duration-300 transform hover:scale-105">
-                Sign Up
-              </button>
-            </Link>
+            
+              <Link href="/login">
+  <button className="relative inline-flex items-center justify-center p-0.5 mb-4 md:mb-0 mr-0 md:mr-2 overflow-hidden text-sm text-gray-600 font-semibold rounded-[5px] group bg-gradient-to-r from-blue-600 to-violet-600 group-hover:from-indigo-600 group-hover:to-indigo-500 hover:text-black transition duration-300 transform hover:scale-105">
+    <span className="relative px-4 py-1.5 transition-all ease-in duration-75 bg-white rounded-[5px] group-hover:bg-opacity-0">
+      Log In
+    </span>
+  </button>
+</Link>
+
+<Link href="/signUp">
+  <button className="p-2.5 text-xs text-center bg-sky-600 rounded-md shadow-[0px_4px_4px_rgba(0,0,0,0.25)] text-slate-50 w-[70px] md:w-[80px] hover:bg-sky-700 transition duration-300 transform hover:scale-105">
+    Sign Up
+  </button>
+</Link>
+
+
           </div>
         </div>
       </nav>
