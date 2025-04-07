@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { Search } from "./Search";
+import  Search  from "./Search";
 import { Filter, Clock, ChevronDown } from "lucide-react";
 
-export const Header = () => {
+export default function Header(){
   return (
     <div className="relative w-[1200px] mb-10 h-44 rounded-[19px] overflow-hidden shadow-[0px_4px_10px_-3px_rgba(0,0,0,0.83),-4px_4px_10px_-3px_rgba(0,0,0,0.06)]">
     <div className="inline-flex flex-wrap items-center justify-start gap-10 relative">

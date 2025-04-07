@@ -5,7 +5,7 @@ export const Search = ({ className }) => {
   return <SearchIcon className={className} />;
 };
 
-const SearchBar = () => {
+export default function  SearchBar(){
   return (
     <div className="flex items-center w-full max-w-md px-4 py-2 border rounded-md shadow-sm bg-white border-gray-300">
       <Search className="w-5 h-5 text-gray-500" />
@@ -19,4 +19,6 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+
+
+

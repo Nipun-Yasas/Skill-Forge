@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Search, Bell, ChevronDown } from "lucide-react";
 
-export const TopNav = () => {
+export default function TopNav(){
   return (
     <div className="fixed top-0 left-0 w-full flex justify-between items-center mb-6 px-4 py-4 bg-white z-10">
       <div className="w-1/4" />
@@ -38,4 +38,3 @@ export const TopNav = () => {
   );
 };
 
-export default TopNav;

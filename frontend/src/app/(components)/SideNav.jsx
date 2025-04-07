@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from "react";
 
-export const SideNav = () => {
+export default function  SideNav(){
   const [activeItem, setActiveItem] = useState(null); // Track the active item
 
   const navItems = [
