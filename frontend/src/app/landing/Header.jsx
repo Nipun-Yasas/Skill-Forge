@@ -11,7 +11,7 @@ function Header() {
 
   return (
     <header className="flex flex-col px-4 w-full">
-      <nav className="flex flex-wrap justify-between items-center w-full text-sm font-medium text-neutral-600">
+      <nav className="flex flex-wrap justify-between items-center w-full text-sm font-medium text-neutral-600 h-auto md:h-[65px]">
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c30ce2447edea85ac60f5c0738a6be1d4234e08?placeholderIfAbsent=true"
           alt="Company Logo"
