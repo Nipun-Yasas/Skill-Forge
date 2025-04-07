@@ -5,7 +5,7 @@ import { Search, Bell, ChevronDown } from "lucide-react";
 
 export const TopNav = () => {
   return (
-    <div className="fixed top-0 left-0 w-full flex justify-between items-center mb-6 px-4 py-4 bg-white z-10">
+    <div className="fixed top-0 left-0 w-full flex justify-between items-center mb-6 px-4 py-4 bg-white z-50">
       <div className="w-1/4" />
 
       {/* Search Box centered */}
