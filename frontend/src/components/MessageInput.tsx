@@ -2,12 +2,31 @@
 
 import * as React from "react";
 
-export function MessageInput() {
+interface MessageInputProps {
+  onSend: (text: string) => void;
+}
+
+export function MessageInput({ onSend }: MessageInputProps) {
+  const [text, setText] = React.useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (text.trim()) {
+      onSend(text);
+      setText("");
+    }
+  };
+
   return (
-    <form className="flex flex-wrap gap-5 justify-between items-start self-center py-3.5 pr-6 pl-16 mt-80 max-w-full text-xl tracking-wider bg-zinc-300 bg-opacity-50 rounded-[50px] w-[603px] max-md:px-5 max-md:mt-10">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-wrap gap-5 justify-between items-start self-center py-3.5 pr-6 pl-16 mt-80 max-w-full text-xl tracking-wider bg-zinc-300 bg-opacity-50 rounded-[50px] w-[603px] max-md:px-5 max-md:mt-10"
+    >
       <input
         type="text"
         placeholder="Type your message..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         className="my-auto bg-transparent outline-none"
       />
       <button type="submit">

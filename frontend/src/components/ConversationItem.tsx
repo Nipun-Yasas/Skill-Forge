@@ -6,6 +6,8 @@ interface ConversationItemProps {
   message: string;
   time: string;
   imageRounded?: boolean;
+  conversationId: string;
+  onSelect?: (conversationId: string) => void;
 }
 
 export function ConversationItem({
@@ -14,9 +16,14 @@ export function ConversationItem({
   message,
   time,
   imageRounded = false,
+  conversationId,
+  onSelect,
 }: ConversationItemProps) {
   return (
-    <article className="flex gap-5 justify-between w-full max-md:mr-2.5">
+    <article
+      className="flex gap-5 justify-between w-full max-md:mr-2.5 cursor-pointer hover:bg-gray-100 p-2 rounded"
+      onClick={() => onSelect?.(conversationId)}
+    >
       <div className="flex gap-6">
         <img
           src={imageSrc}

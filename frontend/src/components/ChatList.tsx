@@ -3,47 +3,54 @@
 import * as React from "react";
 import { SearchBar } from "./SearchBar";
 import { ConversationItem } from "./ConversationItem";
+import { Conversation, User } from "../app/type"; // Correct path
 
-export function ChatList() {
+interface ChatListProps {
+  onSelect?: (conversationId: string) => void;
+}
+
+export function ChatList({ onSelect }: ChatListProps) {
+  const [conversations, setConversations] = React.useState<Conversation[]>([]);
+  const userId = "67f42e6c8312548ae8e47168"; // Replace with your actual user ID
+
+  React.useEffect(() => {
+    const fetchConversations = async () => {
+      try {
+        const response = await fetch(`http://localhost:8000/api/chat/conversations/${userId}`);
+        if (!response.ok) throw new Error("Failed to fetch conversations");
+        const data: Conversation[] = await response.json();
+        setConversations(data);
+      } catch (error) {
+        console.error("Error fetching conversations:", error);
+      }
+    };
+    fetchConversations();
+  }, [userId]);
+
   return (
     <section className="self-stretch my-auto rounded-none min-w-60 w-[411px]">
       <div className="px-10 pt-16 pb-64 w-full bg-white rounded-3xl border border-solid border-black border-opacity-20 shadow-[5px_5px_4px_rgba(0,0,0,0.25)] max-md:px-5 max-md:pb-24">
         <SearchBar />
         <div className="space-y-12 mt-20 max-md:mt-10">
-          <ConversationItem
-            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/3785a5a92367a2b99a0a56147bf5a5b5fba3d5aa?placeholderIfAbsent=true&apiKey=fd0c2c04ade54c2997bae3153b14309c"
-            name="Mary Jones"
-            message="I have a problem..."
-            time="15 mins"
-          />
-          <ConversationItem
-            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/2675b9009c986f0c9f9636137789c1c11870b4e2?placeholderIfAbsent=true&apiKey=fd0c2c04ade54c2997bae3153b14309c"
-            name="Mary Jones"
-            message="I have a problem..."
-            time="15 mins"
-            imageRounded
-          />
-          <ConversationItem
-            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/955004154a755d22f18a10aafb4f51cee1607ee7?placeholderIfAbsent=true&apiKey=fd0c2c04ade54c2997bae3153b14309c"
-            name="Mary Jones"
-            message="I have a problem..."
-            time="15 mins"
-            imageRounded
-          />
-          <ConversationItem
-            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/0fb881ca59bb2790fb8b24dcd4d730a1c20d1a5e?placeholderIfAbsent=true&apiKey=fd0c2c04ade54c2997bae3153b14309c"
-            name="Mary Jones"
-            message="I have a problem..."
-            time="15 mins"
-            imageRounded
-          />
-          <ConversationItem
-            imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/ec030667a68ab8d91dc493170d602555c11eeb06?placeholderIfAbsent=true&apiKey=fd0c2c04ade54c2997bae3153b14309c"
-            name="Mary Jones"
-            message="I have a problem..."
-            time="15 mins"
-            imageRounded
-          />
+          {conversations.map((conv) => {
+            const otherParticipant: User | undefined = conv.participants.find(
+              (p) => p._id !== userId
+            );
+            return (
+              <ConversationItem
+                key={conv._id}
+                imageSrc={otherParticipant?.profileImageUrl || "https://via.placeholder.com/50"}
+                name={otherParticipant?.fullName || "Unknown"}
+                message={conv.lastMessage?.text || "No messages yet"}
+                time={conv.lastMessage?.timestamp
+                  ? new Date(conv.lastMessage.timestamp).toLocaleTimeString()
+                  : "N/A"}
+                imageRounded
+                conversationId={conv._id}
+                onSelect={onSelect}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
