@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -9,16 +9,14 @@ const poppins = Poppins({
 });
 
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "SkillForge",
   description: "Educational website",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
