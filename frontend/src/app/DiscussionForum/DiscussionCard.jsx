@@ -4,7 +4,7 @@ import EngagementMetrics from "./EngagementMetrics";
 
 const DiscussionCard = () => {
   return (
-    <article className="flex flex-col px-14 py-8 mt-5 w-full border-gray-100 border-solid bg-white bg-opacity-10 border-[5px] rounded-[31px] max-md:px-5 max-md:max-w-full">
+    <article className="flex flex-col px-8 py-3 mt-5 w-full border-gray-100 border-solid bg-white bg-opacity-10 border-[5px] rounded-[31px] max-md:px-5 max-md:max-w-full">
       <div className="flex flex-wrap gap-10 w-full max-md:max-w-full">
         <UserInfo />
         <EngagementMetrics />
