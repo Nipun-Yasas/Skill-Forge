@@ -5,6 +5,8 @@ import SkillsInputSection from "./SkillsInputSection";
 import RequestedSkillsSection from "./RequestedSkillsSection";
 import ContinueButton from "./ContinueButton";
 
+
+
 function OfferingSkillsAndRequestedSkills() {
   return (
     <section className="flex overflow-hidden flex-col justify-center items-start py-32 bg-white max-md:py-24 max-md:pr-5">
@@ -20,10 +22,13 @@ function OfferingSkillsAndRequestedSkills() {
                   <h2 className="grow shrink self-end mt-10 text-3xl leading-4 text-black w-[373px]">
                     Offering and Requted Skills
                   </h2>
-                  <ProgressIndicator number={1} />
+                   <ProgressIndicator number={1} />
                   <ProgressIndicator number={2} />
-                  <ProgressIndicator number={3} />
+                  <ProgressIndicator number={3} /> 
+
+                  
                 </div>
+                
 
                 <SkillsInputSection />
 
