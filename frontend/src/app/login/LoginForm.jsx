@@ -43,12 +43,12 @@ const LoginForm = () => {
         <p className="mt-4 text-sm text-center text-black">
           Don't have an account?
         </p>
-        <a
-          
+        <Link
+          href="/signUp"
           className="text-sm font-semibold text-center text-sky-600 hover:underline"
-        ><Link href="/signUp">
-          Register</Link>
-        </a>
+        >
+          Register
+        </Link>
         <Divider text="or" />
         <GoogleButton />
       </form>
