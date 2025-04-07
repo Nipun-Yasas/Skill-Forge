@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Features() {
   const features = [
@@ -23,26 +23,67 @@ function Features() {
       description: "Connect with experienced peers for guidance.",
     },
   ];
+  
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      var cards = document.querySelectorAll('.Card');
+      cards.forEach(card => {
+        var position = card.getBoundingClientRect();
+      
+        // Checking if the element is in the viewport
+        if (position.top < window.innerHeight && position.bottom >= 0) {
+          card.style.animation = 'fadeIn 2s ease-out forwards, filling 10s ease-in-out infinite';
+        }
+      });
+    };
+    
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
   return (
-    <section className="flex flex-col px-7 pt-20 pb-40 mt-12 w-full bg-cyan-100 bg-opacity-40 max-md:px-5 max-md:pb-24 max-md:mt-10 max-md:max-w-full">
+    <>
+      <style>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+       
+
+        .fadeInAnimate {
+          animation: fadeIn 2s ease-out forwards, filling 10s ease-in-out infinite;
+        }
+      `}</style>
+      <section id="features" className="flex flex-col px-7 pt-20 pb-40 mt-12 w-full bg-cyan-100 bg-opacity-40 max-md:px-5 max-md:pb-24 max-md:mt-10 max-md:max-w-full">
       <h2 className="self-center text-5xl font-bold leading-none text-center text-sky-950 max-md:max-w-full max-md:text-4xl">
         Check out educate features
       </h2>
       <div className="mt-24 mb-0 max-md:mt-10 max-md:mb-2.5 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <FeatureCard key={index} {...feature} className="Card" />
           ))}
         </div>
       </div>
-    </section>
+      </section>
+    </>
+    
   );
 }
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon, title, description, className }) {
   return (
-    <article className="w-3/12 max-md:ml-0 max-md:w-full">
+    <article className={`w-3/12 max-md:ml-0 max-md:w-full ${className}`}>
       <div className="flex flex-col items-center px-2 py-9 mx-auto w-full text-center bg-white rounded-3xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:mt-10 h-full">
         <img
           src={icon}

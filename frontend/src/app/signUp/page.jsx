@@ -4,7 +4,7 @@ import { RegistrationFormCard } from "./RegistrationFormCard";
 
 export const page = () => {
   return (
-    <div className="flex overflow-hidden relative justify-center items-center p-10 bg-white min-h-[screen]">
+    <div id="signUp" className="flex overflow-hidden relative justify-center items-center p-10 bg-white min-h-[screen]">
       <BackgroundShapes />
       <RegistrationFormCard />
     </div>

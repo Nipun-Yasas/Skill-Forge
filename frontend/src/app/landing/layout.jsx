@@ -12,10 +12,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased poppins_e0ec69b1-module__5uaDPG__variable poppins_e0ec69b1-module__5uaDPG__">
-      {children}
-      </body>
-    </html>
+    <>
+      <div className="antialiased poppins_e0ec69b1-module__5uaDPG__variable poppins_e0ec69b1-module__5uaDPG__">
+        {children}
+      </div>
+    </>
   );
 }

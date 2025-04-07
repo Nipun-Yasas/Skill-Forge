@@ -25,7 +25,7 @@ const testimonials = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center px-8 py-44 w-full bg-white">
+    <section id="testimonials" className="flex flex-col items-center px-8 py-44 w-full bg-white">
       <div className="flex flex-col gap-10 items-center w-full max-w-[1350px]">
         <div className="relative w-full">
           <TestimonialHeader />
