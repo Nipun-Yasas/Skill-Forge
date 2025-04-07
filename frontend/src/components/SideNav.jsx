@@ -20,7 +20,7 @@ export const SideNav = () => {
   };
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-84 bg-white p-6 mt-[60px] z-10">
+    <aside className="fixed top-10 left-0 h-screen w-84 p-6 mt-[60px] z-10">
       <nav className="flex flex-col gap-6">
         {navItems.map((item, index) => {
           const buttonContent = (
