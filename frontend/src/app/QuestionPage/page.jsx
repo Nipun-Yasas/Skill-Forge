@@ -7,7 +7,9 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-white to-blue-100 p-4">
       
 
-      <div className='relative text-center py-2.5'><p className='inline-block relative -left-4'><h1>Ask a question</h1></p></div>
+      <div className='relative text-center py-2.5'>
+        <h1 className='inline-block relative -left-4'>Ask a question</h1>
+      </div>
       <QuestionForm />
     </main>
   );
