@@ -2,7 +2,7 @@
 import { BackgroundShapes } from "./BackgroundShapes";
 import { RegistrationFormCard } from "./RegistrationFormCard";
 
-export const page = () => {
+const Page = () => {
   return (
     <div id="signUp" className="flex overflow-hidden relative justify-center items-center p-10 bg-white min-h-[screen]">
       <BackgroundShapes />
@@ -11,4 +11,5 @@ export const page = () => {
   );
 };
 
-export default page;
+export const page = Page;
+export default Page;
