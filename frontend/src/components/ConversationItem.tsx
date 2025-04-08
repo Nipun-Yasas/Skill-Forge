@@ -27,10 +27,14 @@ export function ConversationItem({
       <div className="flex gap-6">
         <img
           src={imageSrc}
-          alt={name}
+          alt={`${name}'s profile`}
           className={`object-contain shrink-0 aspect-square w-[50px] ${
             imageRounded ? "rounded-full" : ""
           }`}
+          onError={(e) => {
+            e.currentTarget.onerror = null; // Prevent infinite loop
+            e.currentTarget.src = "placeholder.jpg"; // Reliable fallback
+          }}
         />
         <div className="flex flex-col my-auto">
           <h3 className="self-start text-base font-medium tracking-wider">

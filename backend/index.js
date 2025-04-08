@@ -2,23 +2,27 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const authRoutes = require('./routes/authRoutes');      // Existing auth routes
-const dashboardRoutes = require('./routes/dashboardRoutes'); // Existing dashboard routes
-const chatRoutes = require('./routes/chatRoutes');      // New chat routes
+const authRoutes = require('./routes/authRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
 
 // Routes
-app.use('/api/auth', authRoutes);         // Assuming this is the prefix for auth routes
-app.use('/api/dashboard', dashboardRoutes); // Assuming this is the prefix for dashboard routes
-app.use('/api/chat', chatRoutes);         // New prefix for chat routes
+app.use('/api/auth', authRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/chat', chatRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
