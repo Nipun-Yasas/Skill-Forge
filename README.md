@@ -8,6 +8,7 @@ Welcome to **Skill Forge**, a project dedicated to enhancing skills through a va
 - **Nipun Yasas**
 - **Jehan Pinto**
 - **Navoda Rajapaksha**
+- **Nuraj Perera**
 
 ## Features
 
