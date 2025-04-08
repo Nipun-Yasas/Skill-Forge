@@ -26,7 +26,7 @@ const DiscussionCard = () => {
           alt="Tags"
           className="object-contain overflow-hidden shrink-0 aspect-square w-[92px]"
         />
-        <button className="gap-2.5 w-30 h-10 py-1 pr-4 pl-4 bg-sky-500 rounded-md min-h-6">
+        <button className="gap-2.5 w-30 h-10 py-1 pr-4 pl-4 mt-7 bg-sky-500 rounded-md min-h-6">
           Read more
         </button>
       </div>
