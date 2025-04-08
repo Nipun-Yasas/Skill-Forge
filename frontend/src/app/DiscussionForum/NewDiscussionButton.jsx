@@ -2,7 +2,7 @@ import React from "react";
 
 const NewDiscussionButton = () => {
   return (
-    <button className="flex gap-2.5 px-3 py-2 text-base text-center text-white bg-sky-500 rounded-lg max-md:px-5">
+    <button className="flex gap-2.5 px-3 py-1.5 text-sm text-center text-white bg-sky-500 rounded-lg max-md:px-5 " style={{ margin: 0 }}>
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/17b16368a334788d228ac60be57181587586f723?placeholderIfAbsent=true&apiKey=f7293de09f3e44a3ac87ee34c8ec2753"
         alt="New discussion icon"

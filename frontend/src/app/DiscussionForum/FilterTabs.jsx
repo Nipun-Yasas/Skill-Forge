@@ -2,7 +2,7 @@ import React from "react";
 
 const FilterTabs = () => {
   return (
-    <div className="overflow-hidden px-2.5 mt-4 text-sm tracking-wider capitalize whitespace-nowrap min-h-[25px] text-zinc-500">
+    <div className="overflow-hidden px-2.5 mt-0 text-sm tracking-wider capitalize whitespace-nowrap min-h-[25px] text-zinc-500">
       <nav className="flex overflow-hidden gap-2.5 items-start px-1.5 min-h-[25px]">
         <button className="flex overflow-hidden gap-1.5 items-center px-2.5 py-1.5 text-white bg-cyan-500 rounded-[100px]">
           <img
