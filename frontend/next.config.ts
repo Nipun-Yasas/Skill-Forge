@@ -1,16 +1,15 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  async redirects() {
-    return [
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
       {
-        source: '/',
-        destination: '/landing',
-        permanent: true,
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '8000', // Specify the backend port
+        pathname: '/**', // Allow all paths under localhost:8000
       },
-    ]
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

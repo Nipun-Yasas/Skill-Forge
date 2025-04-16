@@ -1,14 +1,27 @@
 "use client";
 
 import * as React from "react";
-import { Message, } from "../app/type";
+import { ChatHeader } from "./ChatHeader";
+import { Message } from "../app/type";
 import { useAuth } from "../context/AuthContext";
 
 interface ChatWindowProps {
   conversationId: string | null;
+  onMessageSent?: () => void;
+  onDeselect?: () => void;
+  participantName?: string;
+  participantImage?: string | null;
+  lastSeen?: string;
 }
 
-export function ChatWindow({ conversationId }: ChatWindowProps) {
+export function ChatWindow({ 
+  conversationId, 
+  onMessageSent, 
+  onDeselect, 
+  participantName, 
+  participantImage, 
+  lastSeen 
+}: ChatWindowProps) {
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [newMessage, setNewMessage] = React.useState("");
   const { user, token } = useAuth();
@@ -55,7 +68,7 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
         },
         body: JSON.stringify({
           conversationId,
-          senderId: user?._id,
+          sender: user?._id,
           text: newMessage,
           timestamp: new Date().toISOString(),
         }),
@@ -64,8 +77,9 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
       if (!response.ok) throw new Error("Failed to send message");
 
       const newMsg = await response.json();
-      setMessages((prev) => [...prev, ...newMsg]);
+      setMessages((prev) => [...prev, newMsg]);
       setNewMessage("");
+      if (onMessageSent) onMessageSent();
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -80,7 +94,15 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
   }
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col h-full">
+      <div className="sticky top-0 z-10 bg-white">
+        <ChatHeader
+          participantName={participantName || "Unknown User"}
+          participantImage={participantImage || "profile.png"}
+          lastSeen={lastSeen}
+          onExit={onDeselect}
+        />
+      </div>
       <div className="flex-1 p-4 overflow-y-auto">
         {messages.length === 0 ? (
           <p className="text-gray-500 text-center">No messages yet.</p>
@@ -89,12 +111,12 @@ export function ChatWindow({ conversationId }: ChatWindowProps) {
             <div
               key={msg._id}
               className={`mb-4 flex ${
-                msg.sender === user?._id ? "justify-end" : "justify-start"
+                msg.sender?._id === user?._id ? "justify-end" : "justify-start"
               }`}
             >
               <div
                 className={`max-w-xs p-3 rounded-lg ${
-                  msg.sender === user?._id ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
+                  msg.sender?._id === user?._id ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
                 }`}
               >
                 <p>{msg.text}</p>

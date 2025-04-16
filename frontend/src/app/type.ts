@@ -2,22 +2,20 @@ export interface User {
   _id: string;
   fullName: string;
   email: string;
-  profileImageUrl: string | null;
-  lastSeen?: string; // Optional, ISO date string
-  createdAt?: string;
-  updatedAt?: string;
+  profileImageUrl?: string;
+  lastSeen?: string; // Add lastSeen field
 }
 
 export interface Message {
   _id: string;
   conversationId: string;
-  sender: User; // Nested user object
+  sender: User;
   text: string;
-  timestamp: string; // ISO date string
+  timestamp: string;
 }
 
 export interface Conversation {
   _id: string;
-  participants: User[]; // Array of user objects
-  lastMessage: Message | null; // Nullable if no messages yet
+  participants: User[];
+  lastMessage: Message | null;
 }

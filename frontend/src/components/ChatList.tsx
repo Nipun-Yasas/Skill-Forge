@@ -9,10 +9,12 @@ import { useRouter } from "next/navigation";
 
 interface ChatListProps {
   onSelect?: (conversationId: string) => void;
+  conversations: Conversation[]; // Receive conversations from ChatInterface
+  setConversations: React.Dispatch<React.SetStateAction<Conversation[]>>; // Receive setConversations from ChatInterface
+  onNewConversation?: (newConversation: Conversation) => void; // Callback for new conversation
 }
 
-export function ChatList({ onSelect }: ChatListProps) {
-  const [conversations, setConversations] = React.useState<Conversation[]>([]);
+export function ChatList({ onSelect, conversations, setConversations, onNewConversation }: ChatListProps) {
   const [users, setUsers] = React.useState<User[]>([]); // State for all users
   const { user, token } = useAuth();
   const router = useRouter();
@@ -34,14 +36,14 @@ export function ChatList({ onSelect }: ChatListProps) {
         if (!response.ok) throw new Error("Failed to fetch conversations");
         const data: Conversation[] = await response.json();
         console.log("Fetched conversations:", data);
-        setConversations(data);
+        setConversations(data); // Update the shared conversations state
       } catch (error) {
         console.error("Error fetching conversations:", error);
       }
     };
 
     fetchConversations();
-  }, [user, token, router]);
+  }, [user, token, router, setConversations]);
 
   // Fetch all users (excluding the logged-in user)
   React.useEffect(() => {
@@ -60,7 +62,7 @@ export function ChatList({ onSelect }: ChatListProps) {
         if (!response.ok) {
           console.log("Fetch users response status:", response.status);
           console.log("Fetch users response statusText:", response.statusText);
-          const errorData = await response.json().catch(() => ({})); // Try to parse error message from response
+          const errorData = await response.json().catch(() => ({}));
           console.log("Fetch users error data:", errorData);
           throw new Error(`Failed to fetch users: ${response.status} ${response.statusText}`);
         }
@@ -79,7 +81,7 @@ export function ChatList({ onSelect }: ChatListProps) {
   const startNewConversation = async (selectedUserId: string) => {
     try {
       // Generate a unique conversation ID
-      const conversationId = new Date().getTime().toString(); // Simple ID generation; you can use a UUID library for better uniqueness
+      const conversationId = new Date().getTime().toString(); // Simple ID generation; consider using a UUID library
       const participants = [user._id, selectedUserId];
 
       // Create a new conversation
@@ -102,7 +104,12 @@ export function ChatList({ onSelect }: ChatListProps) {
       console.log("New conversation created:", newConversation);
 
       // Update the conversations list
-      setConversations((prev) => [...prev, ...newConversation]);
+      setConversations((prev) => [...prev, newConversation]);
+
+      // Call the onNewConversation callback to notify ChatInterface
+      if (onNewConversation) {
+        onNewConversation(newConversation);
+      }
 
       // Optionally, select the new conversation
       if (onSelect) {
@@ -140,7 +147,7 @@ export function ChatList({ onSelect }: ChatListProps) {
                 return (
                   <ConversationItem
                     key={conv._id}
-                    imageSrc={otherParticipant?.profileImageUrl || "/placeholder.png"}
+                    imageSrc={otherParticipant?.profileImageUrl || "placeholder.jpg"}
                     name={otherParticipant?.fullName || "Unknown User"}
                     message={conv.lastMessage?.text || "No messages yet"}
                     time={
@@ -159,7 +166,7 @@ export function ChatList({ onSelect }: ChatListProps) {
 
           {/* Start a New Chat Section */}
           <div className="mt-6 space-y-4">
-            <h2 className="text-lg font-semibold text-gray-700">Start a New Chat</h2>
+            <h2 className="text-lg font-semibold text-gray-700">Start a New Conversation</h2>
             {users.length === 0 ? (
               <p className="text-gray-500">No other users available.</p>
             ) : (
@@ -170,7 +177,7 @@ export function ChatList({ onSelect }: ChatListProps) {
                   onClick={() => startNewConversation(u._id)}
                 >
                   <img
-                    src={u.profileImageUrl || "/placeholder.png"}
+                    src={u.profileImageUrl || "placeholder.png"}
                     alt={u.fullName}
                     className="w-10 h-10 rounded-full mr-3"
                   />

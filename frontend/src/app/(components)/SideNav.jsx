@@ -1,21 +1,26 @@
 'use client';
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
-export default function  SideNav(){
+export default function SideNav() {
   const [activeItem, setActiveItem] = useState(null); // Track the active item
+  const router = useRouter(); // Initialize useRouter for navigation
 
   const navItems = [
     { label: "Find a mentor", icon: "/findmentor.svg" },
     { label: "Questions", icon: "/help-circle.svg" },
     { label: "Begin a discussion", icon: "/discussion.svg" },
-    { label: "My profile", icon: "/profile-pic.png" }, 
+    { label: "My profile", icon: "/profile-pic.png" },
     { label: "Exchange history", icon: "/History.svg" },
-    { label: "Chat", icon: "/message-circle.svg" },
+    { label: "Chat", icon: "/message-circle.svg", path: "/chatinterface" }, // Add path for Chat
     { label: "Likes and votes", icon: "/vector.svg" },
   ];
 
-  const handleClick = (label) => {
-    setActiveItem(label); 
+  const handleClick = (label, path) => {
+    setActiveItem(label); // Update the active item for styling
+    if (path) {
+      router.push(path); // Navigate to the specified path if it exists
+    }
   };
 
   return (
@@ -24,7 +29,7 @@ export default function  SideNav(){
         {navItems.map((item, index) => (
           <button
             key={index}
-            onClick={() => handleClick(item.label)} // Handle click to change active state
+            onClick={() => handleClick(item.label, item.path)} // Pass label and path to handleClick
             className={`flex items-center gap-3 px-3 py-2 rounded-lg border border-[#00B4D8] text-left text-sm
               ${activeItem === item.label ? "bg-[#00B4D8] text-white" : "hover:bg-[#00B4D8] text-gray-700"}`} // Apply styles based on active state
           >
@@ -37,4 +42,4 @@ export default function  SideNav(){
       </nav>
     </aside>
   );
-};
+}
